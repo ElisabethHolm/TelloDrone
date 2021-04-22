@@ -3,6 +3,7 @@ import sys
 from datetime import datetime
 import time
 import argparse
+import urllib.request
 
 #cd Downloads/Coding/TelloDrone/auto_flight
 #python app.py
@@ -41,6 +42,9 @@ def start():
         "delay 2",
         "left 25",
         "right 25",
+        "streamon",
+        "delay 2",
+        "streamoff",
         "down 50",
         "delay 2",
         "land",
@@ -60,11 +64,19 @@ def start():
             time.sleep(sec)
             pass
         else:
-            tello.send_command(command)
-            #print("asking for response")
-            #response = tello.get_response()
-            #print("Here is the drone response")
-            #print(response)
+            if command == "cameraon":
+                tello.send_command(command)
+                #try:
+                    #with urllib.request.urlopen("0.0.0.0:11111") as f:
+                        #print(f.read().decode('utf-8'))
+                #except urllib.error.URLError as e:
+                    #print(e.reason)
+            else:
+                tello.send_command(command)
+                #print("asking for response")
+                #response = tello.get_response()
+                #print("Here is the drone response")
+                #print(response)
                 
 
     with open(f'log.{start_time}.txt', 'w') as out:
