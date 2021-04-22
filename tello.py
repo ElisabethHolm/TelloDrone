@@ -23,6 +23,18 @@ class Tello(object):
         self.tello_address = (self.tello_ip, self.tello_port)
         self.log = []
 
+        '''
+        #added
+        self.cam_ip = '0.0.0.0'
+        self.cam_port = 8890
+        self.cam_address = (self.cam_ip, self.cam_port)
+
+        #added
+        self.state_ip = '0.0.0.0'
+        self.state_port = 11111
+        self.state_address = (self.state_ip, self.state_port)
+        '''
+
         self.MAX_TIME_OUT = 15.0
 
     def send_command(self, command):
@@ -68,9 +80,9 @@ class Tello(object):
 
         threadRunning = True
 
-    def get_response():
-        global droneResponse
-        return droneResponse
+    #def get_response():
+        #global droneResponse
+        #return droneResponse
 
     def on_close(self):
         """
