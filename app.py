@@ -64,15 +64,15 @@ def start():
             time.sleep(sec)
             pass
         else:
-            if command == "cameraon":
-                tello.send_command(command)
+            if command == "streamon" or command == "streamoff":
+                tello.send_command(command, "cam")
                 #try:
                     #with urllib.request.urlopen("0.0.0.0:11111") as f:
                         #print(f.read().decode('utf-8'))
                 #except urllib.error.URLError as e:
                     #print(e.reason)
             else:
-                tello.send_command(command)
+                tello.send_command(command, "general")
                 #print("asking for response")
                 #response = tello.get_response()
                 #print("Here is the drone response")
