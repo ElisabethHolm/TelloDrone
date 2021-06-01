@@ -1,12 +1,13 @@
+#python 3.8.10
 from tello import Tello
 import sys
 from datetime import datetime
 import time
 import argparse
-import urllib.request
 
 #cd Downloads/Coding/TelloDrone/auto_flight
 #python app.py
+#git push -u origin master
 
 '''
 def parse_args(args):
@@ -42,9 +43,8 @@ def start():
         "delay 2",
         "left 25",
         "right 25",
-        "streamon",
+        "command",
         "delay 2",
-        "streamoff",
         "down 50",
         "delay 2",
         "land",
@@ -53,7 +53,7 @@ def start():
 
     tello = Tello()
     for command in commands:
-        print("running thru commands")
+        #print("running thru commands")
         #if command != '' and command != '\n':
             #command = command.rstrip()
 
@@ -64,15 +64,14 @@ def start():
             time.sleep(sec)
             pass
         else:
-            if command == "streamon" or command == "streamoff":
-                tello.send_command(command, "cam")
-                #try:
-                    #with urllib.request.urlopen("0.0.0.0:11111") as f:
-                        #print(f.read().decode('utf-8'))
-                #except urllib.error.URLError as e:
-                    #print(e.reason)
+            #if command == "streamon" or command == "streamoff":
+                #tello.send_command(command, "cam")
+            if 2 == 1:
+                print("oh???")
+
             else:
-                tello.send_command(command, "general")
+                tello.send_command(command)
+                #tello.send_command(command, "general")
                 #print("asking for response")
                 #response = tello.get_response()
                 #print("Here is the drone response")
